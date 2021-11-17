@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button{
+    width: 70px;
+    height: 30px;
+    margin: 20px;
+    outline: none;
+}
+
+@keyframes desce{
+    from{
+        margin-top: -700px;
+    }
+    to{
+        margin-top: 0;
+    }
+}
+
+.container-modal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    animation: 3s;
+    animation-name: desce;
+}
+
+.div-modal{
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    width: 30%;
+    height: 30%;
+    padding: 21% 10%;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 1px 0 15px;
+}
+
