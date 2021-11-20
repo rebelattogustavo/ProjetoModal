@@ -1,5 +1,9 @@
 const java = document.querySelector('body');
 
+
+let valoresArr = [];
+
+
 let button = document.createElement('button');
 button.className = 'button';
 button.innerText = 'Cadastro';
@@ -10,6 +14,7 @@ container.className = 'container';
 container.appendChild(button);
 
 java.appendChild(container);
+
 
 
 button.addEventListener('click', function(){
@@ -95,33 +100,58 @@ button.addEventListener('click', function(){
     
     enviar.onclick = function(){
         if(nomeInput.value == '' || sobrenomeInput.value == '' || nascInput.value == ''){
-            
+            const divVermelha =  document.createElement('div');
+            divVermelha.className = 'father-vermelha';
+
+
             const vermelha = document.createElement('div');
             vermelha.className = 'div-vermelha'
             vermelha.innerHTML = '<p>HÁ ALGUM CAMPO VAZIO</p>';
             vermelha.style.position = 'absolute';
             vermelha.style.bottom = 0;
-            java.appendChild(vermelha);
+
+            divVermelha.appendChild(vermelha);
+
+            java.appendChild(divVermelha);
+
+            let intervaloV = setTimeout(function(){
+                vermelha.remove()
+                
+            },3000)
         }
         
         else if(nomeInput.value != '' && sobrenomeInput.value != '' && nascInput.value != ''){
+            
+            let tabela = document.createElement('table')
+            tabela.className = 'tabela'
+            
+            java.appendChild(tabela)
+            
+            const divVerde = document.createElement('div');
+            divVerde.className = 'father-verde';
+            
             const verde = document.createElement('div');
-            verde.className = 'div-verde'
+            verde.className = 'div-verde';
             verde.innerHTML = '<p>CADASTRO CONCLUÍDO</p>';
             verde.style.position = 'absolute';
             verde.style.bottom = 0;
             
-            java.appendChild(verde);
+            divVerde.appendChild(verde);
+
+            java.appendChild(divVerde);
             
             let intervalo = setTimeout(function(){
                 containerModal.remove();
-                verde.remove();
-                vermelha.remove()
                 
                 java.style.backgroundColor = 'transparent';
                 button.style.background = '#EFEFEF';
                 button.style.outline = 'none';
-            },3000)
+            },1)
+
+            let intervaloV2 = setTimeout(function(){
+                verde.remove()
+                
+            },5000)
 
             
             let nome = document.querySelector('.input-nome')
@@ -144,21 +174,10 @@ button.addEventListener('click', function(){
                 nascimento: nascimentoValor
             }
 
-            let valoresArr = [pessoa];
-
-
-            
         }
         
         
         
-        const cadastroArray = [];
-        
-        cadastroArray.push(nomeInput.value)
-        
-        cadastroArray.push(sobrenomeInput.value)
-        
-        cadastroArray.push(nascInput.value)
     }
     
     cancelar.onclick = function(){
@@ -166,6 +185,7 @@ button.addEventListener('click', function(){
         java.style.backgroundColor = 'transparent';
         button.style.background = '#EFEFEF';
         button.style.outline = 'none';
+
     }
     
     modal.appendChild(divBoToesInferior)
