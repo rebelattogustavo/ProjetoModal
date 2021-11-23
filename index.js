@@ -174,6 +174,8 @@ button.addEventListener('click', function(){
                 nascimento: nascimentoValor
             }
 
+            valoresArr.push(pessoa);
+
         }
         
         
